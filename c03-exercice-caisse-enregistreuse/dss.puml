@@ -1,0 +1,19 @@
+@startuml DSS
+
+title: DSS Mise en plateau
+skinparam style strictuml
+skinparam defaultfontname Verdana
+
+actor Caissier as C
+participant ":Systeme" as S
+
+C -> S : saisirIdentifiant(identifiant: String, mdp: String)
+S --> C : valide identifiants
+
+C -> S : poserPlateau(identifiantPlateau: String)
+S --> C : valide opération
+
+C -> S : entrerMontantPlateau(montant: double)
+S --> C : fermer tiroir-caisse
+
+@enduml

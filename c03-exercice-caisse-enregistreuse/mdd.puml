@@ -1,0 +1,32 @@
+@startuml MDD
+
+title: MDD Mise en plateau
+skinparam style strictuml
+skinparam defaultfontname Verdana
+
+left to right direction
+
+class Caissier <Role> {
+  identifiant : String
+  motDePasse : String
+}
+
+class Caisse <Objet physique> {
+    identifiant : String
+    isOuvert : boolean
+}
+
+class Plateau <Objet physique> {
+  identifiant: String
+}
+
+class MiseEnPlateau <Ligne de transaction> {
+    dateDebut : DateTime
+    dateFin : DateTime
+    montant : double
+}
+
+Plateau "1" -- "*" MiseEnPlateau : Utilise un <
+Caissier "1" -- "*" MiseEnPlateau : Effectue une >
+Caisse "1" -- "*" MiseEnPlateau : S'effectue dans <
+@enduml
